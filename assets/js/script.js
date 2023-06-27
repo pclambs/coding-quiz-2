@@ -29,11 +29,13 @@ var questions = [
 ];
 var timer;
 var currentTime = document.getElementById("currentTime");
-var secondsLeft = 75;
+var secondsLeft = 5;
 var questionIndex = 0;
+var score = 0;
+var penalty = 15;
 
 var questionsDiv = document.getElementById("questionsDiv");
-var ulCreate = document.createElement("ul");
+var ulCreate = document.createElement("ul")
 
 // Renders questions and choices to the page
 function render() {
@@ -55,9 +57,25 @@ function render() {
     });
 }
 
-function compare() {
+function compare(event) {
     // Logic to compare the selected choice with the correct answer
-    // ...
+    var element = event.target;
+
+    if (element.matches("li")) {
+
+        var feedbackDiv = document.createElement("div");
+        feedbackDiv.setAttribute("id", "feedbackDiv");
+        // correct
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+            feedbackDiv.textContent = "Correct!";
+        } else {
+            secondsLeft = secondsLeft - penalty;
+            feedbackDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+        }
+        console.log(feedbackDiv)
+        questionsDiv.appendChild(feedbackDiv);
+    }
 
     // Move to the next question
     questionIndex++;
@@ -75,9 +93,9 @@ startQuizBtn.addEventListener("click", function () {
 
         if (secondsLeft <= 0) {
             clearInterval(timer);
-            // Handle when time runs out
+            currentTime.textContent = "Time's up!";
+            // finish screen
         }
     }, 1000);
-
     render();
 });
