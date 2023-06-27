@@ -29,7 +29,7 @@ var questions = [
 ];
 var timer;
 var currentTime = document.getElementById("currentTime");
-var secondsLeft = 5;
+var secondsLeft = 75;
 var questionIndex = 0;
 var score = 0;
 var penalty = 15;
@@ -65,23 +65,30 @@ function compare(event) {
 
         var feedbackDiv = document.createElement("div");
         feedbackDiv.setAttribute("id", "feedbackDiv");
-        // correct
         if (element.textContent == questions[questionIndex].answer) {
+            // correct
             score++;
             feedbackDiv.textContent = "Correct!";
         } else {
+            // incorrect
             secondsLeft = secondsLeft - penalty;
             feedbackDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
         console.log(feedbackDiv)
-        questionsDiv.appendChild(feedbackDiv);
     }
-
+    
     // Move to the next question
     questionIndex++;
-
+    
+    if (questionIndex >= questions.length) {
+  
+    } else {
+        render(questionIndex);
+    }
+    
+    questionsDiv.appendChild(feedbackDiv);
     // Render the next question
-    render();
+
 }
 
 // Triggers timer on button click and starts the quiz
