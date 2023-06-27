@@ -1,0 +1,70 @@
+/* global selectors */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+body {
+    background-color: #ecf5ff;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 4rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+/* nav container */
+
+nav {
+    font-size: large;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 1.5rem;
+    color: rgb(105, 37, 168);
+}
+
+nav p {
+    margin: 1.5rem;
+}
+
+/* main body section */
+
+main {
+    padding: 1.5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+main p {
+    font-size: large;
+    line-height: 1.5rem;
+    text-align: center;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+button {
+    background-color: rgb(105, 37, 168);
+    color: white;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    font-size: large;
+}
