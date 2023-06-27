@@ -126,7 +126,8 @@ function quizEnd() {
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var endP2 = document.createElement("p");
-        clearInterval(holdInterval)
+        // clear timer at end of quiz
+        clearInterval(holdInterval);
         endP.textContent = "Your final score is: " + timeRemaining;
 
         questionsDiv.appendChild(endP2);
@@ -160,6 +161,9 @@ function quizEnd() {
         if (initials === null) {
 
             console.log("No value entered!");
+
+
+        } else {
 
         }
     });
