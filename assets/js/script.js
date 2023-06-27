@@ -55,34 +55,6 @@ function render() {
     });
 }
 
-var timer;
-var currentTime = document.getElementById("currentTime");
-var secondsLeft = 75;
-var questionIndex = 0;
-
-var questionsDiv = document.getElementById("questionsDiv");
-var ulCreate = document.createElement("ul");
-
-// Renders questions and choices to the page
-function render() {
-    questionsDiv.innerHTML = "";
-    ulCreate.innerHTML = "";
-
-    var currentQuestion = questions[questionIndex];
-    var userQuestion = currentQuestion.title;
-    var userChoices = currentQuestion.choices;
-
-    questionsDiv.textContent = userQuestion;
-
-    userChoices.forEach(function (choice) {
-        var listItem = document.createElement("li");
-        listItem.textContent = choice;
-        questionsDiv.appendChild(ulCreate);
-        ulCreate.appendChild(listItem);
-        listItem.addEventListener("click", compare);
-    });
-}
-
 function compare() {
     // Logic to compare the selected choice with the correct answer
     // ...
