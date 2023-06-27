@@ -67,6 +67,7 @@ function compare(event) {
 
         var feedbackDiv = document.createElement("div");
         feedbackDiv.setAttribute("id", "feedbackDiv");
+
         if (element.textContent == questions[questionIndex].answer) {
             // correct
             score++;
@@ -84,6 +85,7 @@ function compare(event) {
     if (questionIndex >= questions.length) {
         // End quiz. Will append last page with user stats
         quizEnd(); 
+
     } else {
         render(questionIndex);
     }
@@ -108,6 +110,7 @@ startQuizBtn.addEventListener("click", function () {
 function quizEnd() {
     questionsDiv.innerText = "";
     currentTime.innerText = "";
+    clearInterval(timer);
     // heading
     var endH1 = document.createElement("h1");
     endH1.setAttribute("id", "createH1");
@@ -151,4 +154,13 @@ function quizEnd() {
 
     questionsDiv.appendChild(endSubmit);
 
+    createSubmit.addEventListener("click", function () {
+        var initials = createInput.value;
+
+        if (initials === null) {
+
+            console.log("No value entered!");
+
+        }
+    });
 }
