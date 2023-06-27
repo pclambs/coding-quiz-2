@@ -128,5 +128,27 @@ function quizEnd() {
 
         questionsDiv.appendChild(endP2);
     }
+    // Label
+    var endLabel = document.createElementElement("label");
+    endLabel.setAttribute("id", "endLabel");
+    endLabel.textContent = "Enter your initials: ";
+
+    questionsDiv.appendChild(endLabel);
+
+    // input
+    var endInput = document.createElement("input");
+    endInput.setAttribute("type", "text");
+    endInput.setAttribute("id", "initials");
+    endInput.textContent = "";
+
+    questionsDiv.appendChild(endInput);
+
+    // submit
+    var endSubmit = document.createElement("button");
+    endSubmit.setAttribute("type", "submit");
+    endSubmit.setAttribute("id", "Submit");
+    endSubmit.textContent = "Submit";
+
+    questionsDiv.appendChild(endSubmit);
 
 }
