@@ -129,7 +129,7 @@ function quizEnd() {
         questionsDiv.appendChild(endP2);
     }
     // Label
-    var endLabel = document.createElementElement("label");
+    var endLabel = document.createElement("label");
     endLabel.setAttribute("id", "endLabel");
     endLabel.textContent = "Enter your initials: ";
 
