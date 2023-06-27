@@ -155,8 +155,8 @@ function quizEnd() {
 
     questionsDiv.appendChild(endSubmit);
 
-    createSubmit.addEventListener("click", function () {
-        var initials = createInput.value;
+    endSubmit.addEventListener("click", function () {
+        var initials = endInput.value;
 
         if (initials === null) {
 
@@ -164,7 +164,14 @@ function quizEnd() {
 
 
         } else {
-
+            var finalScore = {
+                initials: initials,
+                score: timeRemaining
+            }
+            console.log(finalScore);
+     
+            // Travels to final page
+            window.location.replace("./highscores.html");
         }
     });
 }
