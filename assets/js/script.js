@@ -27,4 +27,85 @@ var questions = [
     },
 
 ];
-// Test
+var timer;
+var currentTime = document.getElementById("currentTime");
+var secondsLeft = 75;
+var questionIndex = 0;
+
+var questionsDiv = document.getElementById("questionsDiv");
+var ulCreate = document.createElement("ul");
+
+// Renders questions and choices to the page
+function render() {
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+
+    var currentQuestion = questions[questionIndex];
+    var userQuestion = currentQuestion.title;
+    var userChoices = currentQuestion.choices;
+
+    questionsDiv.textContent = userQuestion;
+
+    userChoices.forEach(function (choice) {
+        var listItem = document.createElement("li");
+        listItem.textContent = choice;
+        questionsDiv.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", compare);
+    });
+}
+
+var timer;
+var currentTime = document.getElementById("currentTime");
+var secondsLeft = 75;
+var questionIndex = 0;
+
+var questionsDiv = document.getElementById("questionsDiv");
+var ulCreate = document.createElement("ul");
+
+// Renders questions and choices to the page
+function render() {
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+
+    var currentQuestion = questions[questionIndex];
+    var userQuestion = currentQuestion.title;
+    var userChoices = currentQuestion.choices;
+
+    questionsDiv.textContent = userQuestion;
+
+    userChoices.forEach(function (choice) {
+        var listItem = document.createElement("li");
+        listItem.textContent = choice;
+        questionsDiv.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", compare);
+    });
+}
+
+function compare() {
+    // Logic to compare the selected choice with the correct answer
+    // ...
+
+    // Move to the next question
+    questionIndex++;
+
+    // Render the next question
+    render();
+}
+
+// Triggers timer on button click and starts the quiz
+var startQuizBtn = document.getElementById("startQuizBtn");
+startQuizBtn.addEventListener("click", function () {
+    timer = setInterval(function () {
+        secondsLeft--;
+        currentTime.textContent = "Time: " + secondsLeft;
+
+        if (secondsLeft <= 0) {
+            clearInterval(timer);
+            // Handle when time runs out
+        }
+    }, 1000);
+
+    render();
+});

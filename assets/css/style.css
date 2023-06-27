@@ -40,6 +40,15 @@ nav p {
     margin: 1.5rem;
 }
 
+li {
+    background-color: purple;
+    margin-top: 10px;
+    padding: 5px 15px;
+    width: 80%;
+    font-size: 18px;
+    color: white;
+}
+
 /* main body section */
 
 main {
