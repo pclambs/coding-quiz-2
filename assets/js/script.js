@@ -31,8 +31,10 @@ var timer;
 var currentTime = document.getElementById("currentTime");
 var secondsLeft = 75;
 var questionIndex = 0;
+var holdInterval = 0;
 var score = 0;
 var penalty = 15;
+var startQuizBtn = document.getElementById("startQuizBtn");
 
 var questionsDiv = document.getElementById("questionsDiv");
 var ulCreate = document.createElement("ul")
@@ -70,29 +72,25 @@ function compare(event) {
             score++;
             feedbackDiv.textContent = "Correct!";
         } else {
-            // incorrect
+            // incorrect deducts 15 seconds off secondsLeft
             secondsLeft = secondsLeft - penalty;
-            feedbackDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+            feedbackDiv.textContent = "Wrong! The correct answer was:  " + questions[questionIndex].answer;
         }
-        console.log(feedbackDiv)
     }
     
     // Move to the next question
     questionIndex++;
     
     if (questionIndex >= questions.length) {
-  
+        // End quiz. Will append last page with user stats
+        quizEnd(); 
     } else {
         render(questionIndex);
     }
-    
     questionsDiv.appendChild(feedbackDiv);
-    // Render the next question
-
 }
 
 // Triggers timer on button click and starts the quiz
-var startQuizBtn = document.getElementById("startQuizBtn");
 startQuizBtn.addEventListener("click", function () {
     timer = setInterval(function () {
         secondsLeft--;
@@ -100,9 +98,35 @@ startQuizBtn.addEventListener("click", function () {
 
         if (secondsLeft <= 0) {
             clearInterval(timer);
+            quizEnd();
             currentTime.textContent = "Time's up!";
-            // finish screen
         }
     }, 1000);
     render();
 });
+// end page for quiz
+function quizEnd() {
+    questionsDiv.innerText = "";
+    currentTime.innerText = "";
+    // heading
+    var endH1 = document.createElement("h1");
+    endH1.setAttribute("id", "createH1");
+    endH1.textContent = "All Done!"
+
+    questionsDiv.appendChild(endH1);
+    // paragraph
+    var endP = document.createElement("p");
+    endP.setAttribute("id", "endP");
+
+    questionsDiv.appendChild(endP);
+
+    if (secondsLeft >= 0) {
+        var timeRemaining = secondsLeft;
+        var endP2 = document.createElement("p");
+        clearInterval(holdInterval)
+        endP.textContent = "Your final score is: " + timeRemaining;
+
+        questionsDiv.appendChild(endP2);
+    }
+
+}
