@@ -51,6 +51,7 @@ function render() {
     var questionTitle = document.createElement("h2");
     questionTitle.textContent = userQuestion;
     questionTitle.style.fontSize = "2rem";
+    questionTitle.style.marginBottom = "4rem";
 
     questionsDiv.appendChild(questionTitle);
 
@@ -60,6 +61,7 @@ function render() {
         questionsDiv.appendChild(ulCreate);
         ulCreate.appendChild(listItem);
         listItem.addEventListener("click", compare);
+        listItem.style.marginBottom = "1rem";
     });
 }
 
