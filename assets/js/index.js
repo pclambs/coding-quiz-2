@@ -48,7 +48,11 @@ function render() {
     var userQuestion = currentQuestion.title;
     var userChoices = currentQuestion.choices;
 
-    questionsDiv.textContent = userQuestion;
+    var questionTitle = document.createElement("h2");
+    questionTitle.textContent = userQuestion;
+    questionTitle.style.fontSize = "2rem";
+
+    questionsDiv.appendChild(questionTitle);
 
     userChoices.forEach(function (choice) {
         var listItem = document.createElement("li");
@@ -77,6 +81,9 @@ function compare(event) {
             secondsLeft = secondsLeft - penalty;
             feedbackDiv.textContent = "Wrong! The correct answer was:  " + questions[questionIndex].answer;
         }
+        setTimeout(function () {
+            feedbackDiv.textContent = "";
+        }, 1500);
     }
     
     // Move to the next question
@@ -132,28 +139,42 @@ function quizEnd() {
 
         questionsDiv.appendChild(endP2);
     }
+    // Label and input container
+    var inputContainer = document.createElement("div");
+    inputContainer.setAttribute("id", "inputContainer");
+    inputContainer.style.display = "flex";
+    inputContainer.style.alignItems = "center";
+    inputContainer.style.gap = "10px";
+
+    questionsDiv.appendChild(inputContainer);
+
     // Label
     var endLabel = document.createElement("label");
     endLabel.setAttribute("id", "endLabel");
     endLabel.textContent = "Enter your initials: ";
+    endLabel.style.fontSize = "2rem";
 
-    questionsDiv.appendChild(endLabel);
+    inputContainer.appendChild(endLabel);
 
     // input
     var endInput = document.createElement("input");
     endInput.setAttribute("type", "text");
     endInput.setAttribute("id", "initials");
-    endInput.textContent = "";
+    endInput.style.fontSize = "2rem";
+    endInput.style.flexGrow = "1";
 
-    questionsDiv.appendChild(endInput);
+    inputContainer.appendChild(endInput);
 
     // submit
     var endSubmit = document.createElement("button");
     endSubmit.setAttribute("type", "submit");
     endSubmit.setAttribute("id", "Submit");
     endSubmit.textContent = "Submit";
+    endSubmit.style.fontSize = "1.7rem";
+    endSubmit.style.padding = "5px 10px";
+    endSubmit.style.alignSelf = "flex-start";
 
-    questionsDiv.appendChild(endSubmit);
+    inputContainer.appendChild(endSubmit);
 
     endSubmit.addEventListener("click", function () {
         var initials = endInput.value;

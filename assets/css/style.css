@@ -40,16 +40,7 @@ nav p {
     margin: 1.5rem;
 }
 
-li {
-    background-color: purple;
-    margin-top: 10px;
-    padding: 5px 15px;
-    width: 80%;
-    font-size: 18px;
-    color: white;
-}
-
-/* main body section */
+/* main section */
 
 main {
     padding: 1.5rem;
@@ -61,12 +52,33 @@ main {
 }
 
 main p {
-    font-size: large;
-    line-height: 1.5rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
     text-align: center;
     width: 75%;
     margin: auto;
     margin-bottom: 3rem;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span {
+    color: white;
+}
+
+li {
+    background-color: purple;
+    /* margin-top: 10px; */
+    padding: 5px 15px;
+    font-size: 2rem;
+    width: 100%;
+    color: white;
+    border-radius: .5rem;
+    cursor: pointer;
 }
 
 button {
@@ -75,5 +87,11 @@ button {
     padding: .5rem;
     border-radius: .5rem;
     border: none;
-    font-size: large;
-}
+    font-size: 2rem;
+    cursor: pointer;
+
+}   
+
+/* button:hover {
+
+} */
