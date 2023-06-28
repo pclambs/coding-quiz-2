@@ -52,9 +52,9 @@ function render() {
     questionTitle.textContent = userQuestion;
     questionTitle.style.fontSize = "2rem";
     questionTitle.style.marginBottom = "4rem";
-
+    
     questionsDiv.appendChild(questionTitle);
-
+    
     userChoices.forEach(function (choice) {
         var listItem = document.createElement("li");
         listItem.textContent = choice;
@@ -62,6 +62,7 @@ function render() {
         ulCreate.appendChild(listItem);
         listItem.addEventListener("click", compare);
         listItem.style.marginBottom = "1rem";
+        listItem.style.listStyle = "none";
     });
 }
 
@@ -164,6 +165,7 @@ function quizEnd() {
     endInput.setAttribute("id", "initials");
     endInput.style.fontSize = "2rem";
     endInput.style.flexGrow = "1";
+    endInput.style.marginBottom = "1rem";
 
     inputContainer.appendChild(endInput);
 
