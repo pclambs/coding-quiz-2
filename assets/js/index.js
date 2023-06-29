@@ -149,6 +149,7 @@ function quizEnd() {
     inputContainer.setAttribute("id", "inputContainer");
     inputContainer.style.display = "flex";
     inputContainer.style.alignItems = "center";
+    inputContainer.style.flexWrap = "wrap"
     inputContainer.style.gap = "10px";
 
     questionsDiv.appendChild(inputContainer);
@@ -180,6 +181,7 @@ function quizEnd() {
     endSubmit.style.fontSize = "1.7rem";
     endSubmit.style.padding = "5px 10px";
     endSubmit.style.alignSelf = "flex-start";
+    endSubmit.style.marginBottom = "1rem";
 
     inputContainer.appendChild(endSubmit);
 
