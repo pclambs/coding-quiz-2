@@ -50,9 +50,8 @@ function render() {
 
     var questionTitle = document.createElement("h2");
     questionTitle.textContent = userQuestion;
-    questionTitle.style.fontSize = "2rem";
-    questionTitle.style.marginBottom = "4rem";
-    
+    questionTitle.classList.add("questionTitle");
+
     questionsDiv.appendChild(questionTitle);
     
     userChoices.forEach(function (choice) {
@@ -61,8 +60,7 @@ function render() {
         questionsDiv.appendChild(ulCreate);
         ulCreate.appendChild(listItem);
         listItem.addEventListener("click", compare);
-        listItem.style.marginBottom = "1rem";
-        listItem.style.listStyle = "none";
+        listItem.classList.add("listItem")
     });
 }
 
@@ -147,19 +145,14 @@ function quizEnd() {
     // Label and input container
     var inputContainer = document.createElement("div");
     inputContainer.setAttribute("id", "inputContainer");
-    inputContainer.style.display = "flex";
-    inputContainer.style.alignItems = "center";
-    inputContainer.style.flexWrap = "wrap"
-    inputContainer.style.gap = "10px";
-
+    inputContainer.classList.add("inputContainer")
     questionsDiv.appendChild(inputContainer);
 
     // Label
     var endLabel = document.createElement("label");
     endLabel.setAttribute("id", "endLabel");
     endLabel.textContent = "Enter your initials: ";
-    endLabel.style.fontSize = "2rem";
-    endLabel.style.marginBottom = "1rem";
+    endLabel.classList.add("endLabel")
 
     inputContainer.appendChild(endLabel);
 
@@ -167,9 +160,7 @@ function quizEnd() {
     var endInput = document.createElement("input");
     endInput.setAttribute("type", "text");
     endInput.setAttribute("id", "initials");
-    endInput.style.fontSize = "2rem";
-    endInput.style.flexGrow = "1";
-    endInput.style.marginBottom = "1rem";
+    endInput.classList.add("endInput")
 
     inputContainer.appendChild(endInput);
 
@@ -178,10 +169,7 @@ function quizEnd() {
     endSubmit.setAttribute("type", "submit");
     endSubmit.setAttribute("id", "Submit");
     endSubmit.textContent = "Submit";
-    endSubmit.style.fontSize = "1.7rem";
-    endSubmit.style.padding = "5px 10px";
-    endSubmit.style.alignSelf = "flex-start";
-    endSubmit.style.marginBottom = "1rem";
+    endSubmit.classList.add("endSubmit")
 
     inputContainer.appendChild(endSubmit);
 

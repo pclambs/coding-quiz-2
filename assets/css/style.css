@@ -92,8 +92,42 @@ button {
 
 }   
 
-/* button:hover {
+/* button:hover {} */
 
-} */
+/* JS elements */
 
-/* Breakpoints */
+.questionTitle {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+
+.listItem {
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+  
+.endLabel {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+  
+.endInput {
+    font-size: 2rem;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.endSubmit {
+    font-size: 1.7rem;
+    padding: 5px 10px;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+
