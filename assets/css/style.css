@@ -14,9 +14,13 @@ body {
 }
 
 h1 {
-    margin: 4rem;
+    margin-bottom: 4rem;
     font-weight: 900;
     text-align: center;
+}
+
+h2 {
+    height: 10vh;
 }
 
 
@@ -33,7 +37,11 @@ nav {
 nav a {
     text-decoration: none;
     margin: 1.5rem;
-    color: rgb(105, 37, 168);
+    color: purple;
+}
+
+nav a:hover {
+    color: rgb(104, 0, 104);
 }
 
 nav p {
@@ -92,7 +100,10 @@ button {
 
 }   
 
-/* button:hover {} */
+button:hover {
+    background-color: rgb(104, 0, 104);
+    transition: all .07s;
+}
 
 /* JS elements */
 
@@ -104,6 +115,10 @@ button {
 .listItem {
     margin-bottom: 1rem;
     list-style: none;
+}
+
+.listItem:hover {
+    background-color: rgb(104, 0, 104);
 }
 
 .inputContainer {
@@ -131,3 +146,23 @@ button {
     margin-bottom: 1rem;
 }
 
+/* Media queries for mobile devices */
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem; /* Adjusted font size for mobile */
+        margin-bottom: 3rem;
+    }
+
+    .questionTitle {
+        font-size: 1.4rem; /* Adjusted font size for mobile */
+        margin-bottom: 3rem;
+    }
+
+    main p {
+        font-size: 1rem; /* Adjusted font size for mobile */
+        line-height: 2rem;
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+}
