@@ -27,6 +27,7 @@ var questions = [
     },
 
 ];
+// Variables
 var timer;
 var currentTime = document.getElementById("currentTime");
 var secondsLeft = 75;
@@ -35,7 +36,6 @@ var holdInterval = 0;
 var score = 0;
 var penalty = 15;
 var startQuizBtn = document.getElementById("startQuizBtn");
-
 var questionsDiv = document.getElementById("questionsDiv");
 var ulCreate = document.createElement("ul")
 
@@ -66,6 +66,7 @@ function render() {
     });
 }
 
+// Compares slected choice to answers
 function compare(event) {
     // Logic to compare the selected choice with the correct answer
     var element = event.target;
@@ -102,7 +103,7 @@ function compare(event) {
     questionsDiv.appendChild(feedbackDiv);
 }
 
-// Triggers timer on button click and starts the quiz
+// Triggers timer on button click and starts quiz
 startQuizBtn.addEventListener("click", function () {
     timer = setInterval(function () {
         secondsLeft--;
@@ -116,7 +117,8 @@ startQuizBtn.addEventListener("click", function () {
     }, 1000);
     render();
 });
-// end page for quiz
+
+// End page for quiz
 function quizEnd() {
     questionsDiv.innerText = "";
     currentTime.innerText = "";
@@ -156,6 +158,7 @@ function quizEnd() {
     endLabel.setAttribute("id", "endLabel");
     endLabel.textContent = "Enter your initials: ";
     endLabel.style.fontSize = "2rem";
+    endLabel.style.marginBottom = "1rem";
 
     inputContainer.appendChild(endLabel);
 
