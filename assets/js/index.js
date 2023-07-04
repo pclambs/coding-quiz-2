@@ -39,9 +39,9 @@ var startQuizBtn = document.getElementById("startQuizBtn");
 var questionsDiv = document.getElementById("questionsDiv");
 var ulCreate = document.createElement("ul")
 // Sounds
-var soundCorrect = new Audio("../sounds/sound-correct.mp3");
-var soundIncorrect = new Audio("../sounds/sound-incorrect.mp3");
-var soundAllDone = new Audio("../sounds/sound-all-done.mp3")
+var soundCorrect = new Audio("./sounds/sound-correct.mp3");
+var soundIncorrect = new Audio("./sounds/sound-incorrect.mp3");
+var soundAllDone = new Audio("./sounds/sound-all-done.mp3")
 
 // Renders questions and choices to the page
 function render() {
