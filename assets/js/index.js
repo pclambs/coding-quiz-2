@@ -38,6 +38,10 @@ var penalty = 15;
 var startQuizBtn = document.getElementById("startQuizBtn");
 var questionsDiv = document.getElementById("questionsDiv");
 var ulCreate = document.createElement("ul")
+// Sounds
+var soundCorrect = new Audio("../sounds/sound-correct.mp3");
+var soundIncorrect = new Audio("../sounds/sound-incorrect.mp3");
+var soundAllDone = new Audio("../sounds/sound-all-done.mp3")
 
 // Renders questions and choices to the page
 function render() {
@@ -78,10 +82,12 @@ function compare(event) {
             // correct
             score++;
             feedbackDiv.textContent = "Correct!";
+            soundCorrect.play();
         } else {
             // incorrect deducts 15 seconds off secondsLeft
             secondsLeft = secondsLeft - penalty;
             feedbackDiv.textContent = "Wrong! The correct answer was:  " + questions[questionIndex].answer;
+            soundIncorrect.play();
         }
         setTimeout(function () {
             feedbackDiv.textContent = "";
@@ -121,13 +127,14 @@ function quizEnd() {
     questionsDiv.innerText = "";
     currentTime.innerText = "";
     clearInterval(timer);
-    // heading
+    // Heading
     var endH1 = document.createElement("h1");
     endH1.setAttribute("id", "createH1");
     endH1.textContent = "All Done!"
+    soundAllDone.play();
 
     questionsDiv.appendChild(endH1);
-    // paragraph
+    // Paragraph
     var endP = document.createElement("p");
     endP.setAttribute("id", "endP");
 
@@ -136,7 +143,7 @@ function quizEnd() {
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var endP2 = document.createElement("p");
-        // clear timer at end of quiz
+        // Clear timer at end of quiz
         clearInterval(holdInterval);
         endP.textContent = "Your final score is: " + timeRemaining;
 
