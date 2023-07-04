@@ -82,11 +82,13 @@ function compare(event) {
             // correct
             score++;
             feedbackDiv.textContent = "Correct!";
+            soundCorrect.currentTime = 0;
             soundCorrect.play();
         } else {
             // incorrect deducts 15 seconds off secondsLeft
             secondsLeft = secondsLeft - penalty;
             feedbackDiv.textContent = "Wrong! The correct answer was:  " + questions[questionIndex].answer;
+            soundIncorrect.currentTime = 0;
             soundIncorrect.play();
         }
         setTimeout(function () {
